@@ -1,0 +1,34 @@
+type Post {
+    id: ID! @annotate(name: "jakarta.validation.constraints.NotBlank")
+    title: String! @annotate(name: "jakarta.validation.constraints.NotBlank")
+    text: String! @annotate(name: "jakarta.validation.constraints.NotBlank")
+    category: String
+    author: Author! @annotate(name: "pt.com.hugodias.graphql.domain.authors.ValidAuthor")
+    first_author: Author!
+}
+
+type Author {
+    id: ID! @annotate(name: "jakarta.validation.constraints.NotBlank")
+    name: String! @annotate(name: "jakarta.validation.constraints.NotBlank")
+    thumbnail: String
+    posts: [Post]!
+}
+
+# The Root Query for the application
+type Query {
+    recentPosts(count: Int, offset: Int): [Post]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    createPost(title: String!, text: String!, category: String, authorId: String!) : Post!
+    createAuthor(name: String!, thumbnail: String): Author!
+}
+
+"Custom Annotation"
+directive @annotate(
+    name: String!
+    type: String
+    inputs: JSON
+    target: String
+) repeatable on OBJECT | FIELD_DEFINITION | INPUT_OBJECT | INPUT_FIELD_DEFINITION
