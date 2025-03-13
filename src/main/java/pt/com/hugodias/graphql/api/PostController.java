@@ -6,12 +6,13 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
+
 import pt.com.hugodias.graphql.api.mapper.PostMapper;
-import pt.com.hugodias.graphql.api.type.NewPost;
+import pt.com.hugodias.graphql.api.types.Author;
+import pt.com.hugodias.graphql.api.types.NewPost;
+import pt.com.hugodias.graphql.api.types.Post;
 import pt.com.hugodias.graphql.domain.authors.AuthorService;
-import pt.com.hugodias.graphql.domain.authors.model.Author;
 import pt.com.hugodias.graphql.domain.posts.PostRepository;
-import pt.com.hugodias.graphql.domain.posts.model.Post;
 
 import java.util.List;
 

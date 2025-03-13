@@ -1,8 +1,9 @@
 package pt.com.hugodias.graphql.domain.authors;
 
 import lombok.RequiredArgsConstructor;
+import pt.com.hugodias.graphql.api.types.Author;
+
 import org.springframework.stereotype.Service;
-import pt.com.hugodias.graphql.domain.authors.model.Author;
 
 @Service
 @RequiredArgsConstructor

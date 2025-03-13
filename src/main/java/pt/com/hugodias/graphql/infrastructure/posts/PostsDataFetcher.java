@@ -3,9 +3,11 @@ package pt.com.hugodias.graphql.infrastructure.posts;
 import jakarta.annotation.PostConstruct;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import pt.com.hugodias.graphql.domain.authors.model.Author;
+
+import java.util.List;
+import pt.com.hugodias.graphql.api.types.Author;
+import pt.com.hugodias.graphql.api.types.Post;
 import pt.com.hugodias.graphql.domain.posts.PostRepository;
-import pt.com.hugodias.graphql.domain.posts.model.Post;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,7 +21,8 @@ public class PostsDataFetcher implements PostRepository {
 
     @PostConstruct
     public void init() {
-        posts.put("id1", Post.builder().id("id1").title("Spring Data to manage data").author(Author.builder().id("hugo").build()).build());
+        posts.put("id1", Post.newBuilder().id("id1").title("Spring Data to manage data").author(
+                Author.newBuilder().id("hugo").build()).build());
     }
 
     public Collection<Post> findAll() {
@@ -44,6 +47,11 @@ public class PostsDataFetcher implements PostRepository {
     public Post save(Post post) {
         posts.put(post.getId(), post);
         return post;
+    }
+
+    @Override
+    public Collection<Post> findByAuthorId(final String authorId) {
+        return posts.values().stream().filter(post -> post.getAuthor().getId().equals(authorId)).toList();
     }
 
 }

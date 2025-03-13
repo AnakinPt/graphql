@@ -3,7 +3,7 @@ package pt.com.hugodias.graphql.domain.authors;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
-import pt.com.hugodias.graphql.domain.authors.model.Author;
+import pt.com.hugodias.graphql.api.types.Author;
 
 @RequiredArgsConstructor
 public class AuthorValidator implements ConstraintValidator<ValidAuthor, Author> {

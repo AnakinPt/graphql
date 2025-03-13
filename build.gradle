@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.3'
     id 'io.spring.dependency-management' version '1.1.7'
-//    id 'com.netflix.dgs.codegen' version '7.0.3'
+    id 'com.netflix.dgs.codegen' version '7.0.3'
 }
 
 group = 'pt.com.hugodias'
@@ -70,10 +70,10 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-//generateJava {
-//    schemaPaths = ["${projectDir}/src/main/resources/graphql"]
-//    packageName = 'pt.com.hugodias.graphql.api.graphql'
-//    generateClient = false
-//    generateCustomAnnotations = true
-//    addGeneratedAnnotation = true
-//}
+generateJava {
+    schemaPaths = ["${projectDir}/src/main/resources/graphql"]
+    packageName = 'pt.com.hugodias.graphql.api'
+    generateClient = false
+    generateCustomAnnotations = true
+    addGeneratedAnnotation = true
+}

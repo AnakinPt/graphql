@@ -1,10 +1,9 @@
 package pt.com.hugodias.graphql.domain.authors;
 
 
-import pt.com.hugodias.graphql.domain.authors.model.Author;
-
 import java.util.Collection;
 import java.util.Optional;
+import pt.com.hugodias.graphql.api.types.Author;
 
 public interface AuthorRepository {
     Collection<Author> findAll();

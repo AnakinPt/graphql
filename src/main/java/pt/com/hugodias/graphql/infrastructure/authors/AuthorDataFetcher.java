@@ -2,8 +2,9 @@ package pt.com.hugodias.graphql.infrastructure.authors;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
+
+import pt.com.hugodias.graphql.api.types.Author;
 import pt.com.hugodias.graphql.domain.authors.AuthorRepository;
-import pt.com.hugodias.graphql.domain.authors.model.Author;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public class AuthorDataFetcher implements AuthorRepository {
 
     @PostConstruct
     public void init(){
-        authors.put("hugo", Author.builder().id("hugo").name("Hugo Dias").build());
+        authors.put("hugo", Author.newBuilder().id("hugo").name("Hugo Dias").build());
     }
 
     @Override
